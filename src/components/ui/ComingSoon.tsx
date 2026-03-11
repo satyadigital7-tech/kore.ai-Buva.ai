@@ -3,8 +3,6 @@
 import { motion } from 'framer-motion';
 import { LucideIcon, Sparkles, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 
 interface ComingSoonProps {
     productName: string;
@@ -16,7 +14,7 @@ interface ComingSoonProps {
 const fadeInUp = {
     initial: { opacity: 0, y: 40, filter: 'blur(5px)' },
     animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
-    transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
+    transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as any }
 };
 
 export default function ComingSoon({ productName, description, Icon, color }: ComingSoonProps) {
@@ -36,7 +34,6 @@ export default function ComingSoon({ productName, description, Icon, color }: Co
 
     return (
         <main className="min-h-screen bg-white dark:bg-black overflow-hidden flex flex-col">
-            <Navbar />
 
             <div className="flex-1 relative flex items-center justify-center pt-20">
                 {/* Abstract Background Shapes */}
@@ -44,13 +41,6 @@ export default function ComingSoon({ productName, description, Icon, color }: Co
                 <div className={`absolute bottom-1/4 right-1/4 w-[400px] h-[400px] ${color === 'blue' ? 'bg-blue-600' : color === 'indigo' ? 'bg-indigo-600' : color === 'purple' ? 'bg-purple-600' : 'bg-emerald-600'}/5 rounded-full blur-[100px]`} />
 
                 <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-                    <motion.div
-                        {...fadeInUp}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 mb-12"
-                    >
-                        <Sparkles className={`w-4 h-4 ${colorMap[color].split(' ')[2]}`} />
-                        <span className="text-sm font-bold tracking-widest uppercase text-neutral-500 dark:text-white/60">Coming Soon</span>
-                    </motion.div>
 
                     <motion.div
                         {...fadeInUp}
@@ -114,8 +104,6 @@ export default function ComingSoon({ productName, description, Icon, color }: Co
                     </motion.div>
                 </div>
             </div>
-
-            <Footer />
         </main>
     );
 }
