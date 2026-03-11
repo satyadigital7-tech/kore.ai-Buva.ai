@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { Receipt, Users, Briefcase, CreditCard, Zap, ShieldCheck, Globe, Cpu, BarChart3, Clock, Sparkles, Layout } from 'lucide-react';
 
