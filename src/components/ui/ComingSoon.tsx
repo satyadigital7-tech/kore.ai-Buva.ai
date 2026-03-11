@@ -41,6 +41,12 @@ export default function ComingSoon({ productName, description, Icon, color }: Co
                 <div className={`absolute bottom-1/4 right-1/4 w-[400px] h-[400px] ${color === 'blue' ? 'bg-blue-600' : color === 'indigo' ? 'bg-indigo-600' : color === 'purple' ? 'bg-purple-600' : 'bg-emerald-600'}/5 rounded-full blur-[100px]`} />
 
                 <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+                    <motion.div
+                        {...fadeInUp}
+                        className="inline-flex items-center px-4 py-2 rounded-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 mb-12"
+                    >
+                        <span className="text-sm font-bold tracking-widest uppercase text-neutral-500 dark:text-white/60">Coming Soon</span>
+                    </motion.div>
 
                     <motion.div
                         {...fadeInUp}
