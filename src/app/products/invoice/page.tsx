@@ -112,15 +112,6 @@ export default function InvoicePage() {
                                 />
                                 <div className="absolute inset-0 bg-neutral-900/20" />
                             </div>
-                            <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/95 backdrop-blur rounded-2xl border border-neutral-100 shadow-xl">
-                                <div className="flex gap-4 items-center">
-                                    <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600"><Layout className="w-6 h-6" /></div>
-                                    <div>
-                                        <div className="text-sm font-bold text-neutral-900">Adaptive Invoicing</div>
-                                        <div className="text-xs text-neutral-600 uppercase tracking-widest font-black">Feature active</div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </motion.div>
 
