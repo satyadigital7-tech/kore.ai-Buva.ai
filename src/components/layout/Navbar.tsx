@@ -30,10 +30,30 @@ export default function Navbar() {
             href: '#',
             hasDropdown: true,
             dropdownItems: [
-                { name: 'Invoice', href: '/products/invoice', icon: <Receipt className="w-4 h-4" /> },
-                { name: 'HRMS', href: '/products/hrms', icon: <Users className="w-4 h-4" /> },
-                { name: 'CRM', href: '/products/crm', icon: <Briefcase className="w-4 h-4" /> },
-                { name: 'Payroll', href: '/products/payroll', icon: <CreditCard className="w-4 h-4" /> },
+                {
+                    name: 'Invoice',
+                    href: '/products/invoice',
+                    icon: <Receipt className="w-5 h-5 text-blue-500" />,
+                    desc: 'Automated billing & GST-ready invoicing'
+                },
+                {
+                    name: 'HRMS',
+                    href: '/products/hrms',
+                    icon: <Users className="w-5 h-5 text-indigo-500" />,
+                    desc: 'Agentic talent & team management'
+                },
+                {
+                    name: 'CRM',
+                    href: '/products/crm',
+                    icon: <Briefcase className="w-5 h-5 text-purple-500" />,
+                    desc: 'Predictive customer relationship tools'
+                },
+                {
+                    name: 'Payroll',
+                    href: '/products/payroll',
+                    icon: <CreditCard className="w-5 h-5 text-emerald-500" />,
+                    desc: 'Zero-error global payroll automation'
+                },
             ]
         },
         { name: 'Features', href: '/features' },
@@ -77,28 +97,33 @@ export default function Navbar() {
                                 </Link>
 
                                 {link.hasDropdown && (
-                                    <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover/item:opacity-100 group-hover/item:translate-y-0 group-hover/item:pointer-events-auto transition-all duration-300">
-                                        <div className="w-56 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 rounded-xl p-2 shadow-xl">
+                                    <div className={`absolute top-full ${link.name === 'Products' ? '-left-20' : 'left-0'} pt-2 opacity-0 translate-y-2 pointer-events-none group-hover/item:opacity-100 group-hover/item:translate-y-0 group-hover/item:pointer-events-auto transition-all duration-300`}>
+                                        <div className={`${link.name === 'Products' ? 'w-[640px]' : 'w-56'} bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 rounded-2xl p-4 shadow-2xl`}>
                                             {link.dropdownItems ? (
-                                                <div className="flex flex-col gap-1">
+                                                <div className={`grid ${link.name === 'Products' ? 'grid-cols-2' : 'grid-cols-1'} gap-2`}>
                                                     {link.dropdownItems.map((item) => (
                                                         <Link
                                                             key={item.name}
                                                             href={item.href}
-                                                            className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-white/5 transition-colors text-sm font-medium text-neutral-600 dark:text-white/70 hover:text-neutral-900 dark:hover:text-white"
+                                                            className="flex items-start gap-4 p-4 rounded-xl hover:bg-neutral-50 dark:hover:bg-white/5 transition-all group/subitem"
                                                         >
-                                                            <div className="text-blue-500">
+                                                            <div className="w-10 h-10 rounded-lg bg-neutral-50 dark:bg-neutral-800 flex items-center justify-center shrink-0 group-hover/subitem:bg-white dark:group-hover/subitem:bg-neutral-700 shadow-sm transition-colors border border-transparent group-hover/subitem:border-neutral-100 dark:group-hover/subitem:border-white/10">
                                                                 {item.icon}
                                                             </div>
-                                                            {item.name}
+                                                            <div>
+                                                                <div className="text-[15px] font-bold text-neutral-900 dark:text-white mb-0.5">{item.name}</div>
+                                                                {(item as any).desc && (
+                                                                    <div className="text-xs text-neutral-500 dark:text-white/40 leading-relaxed">{(item as any).desc}</div>
+                                                                )}
+                                                            </div>
                                                         </Link>
                                                     ))}
                                                 </div>
                                             ) : (
-                                                <>
+                                                <div className="p-4">
                                                     <div className="px-3 py-2 text-xs font-semibold text-neutral-400 dark:text-white/40 uppercase tracking-wider">Coming Soon</div>
                                                     <div className="h-24 flex items-center justify-center text-sm text-neutral-400">Loading modules...</div>
-                                                </>
+                                                </div>
                                             )}
                                         </div>
                                     </div>
